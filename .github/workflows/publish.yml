@@ -84,7 +84,7 @@ jobs:
         shell: bash
         run: |
           BIN="src-tauri/target/release/secure-vault-desktop.exe"
-          ZIP="SecureVault_${{ github.ref_name }}_绿色免安装.zip"
+          ZIP="SecureVault_${{ github.ref_name }}_Windows.zip"
           7z a "$ZIP" "$BIN"
           gh release upload "${{ github.ref_name }}" "$ZIP" --repo ${{ github.repository }}
         env:
