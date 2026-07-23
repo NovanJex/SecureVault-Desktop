@@ -1,6 +1,6 @@
 # SecureVault 🔐
 
-> 纯本地、跨平台、高安全性的离线密码管理器
+> 纯本地、跨平台、高安全性的离线密码管理器 · [English](README_EN.md)
 
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)](https://github.com)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
