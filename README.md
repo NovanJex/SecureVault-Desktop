@@ -14,193 +14,193 @@
 </p>
 
 <p align="center">
-  <b>Zero-knowledge · Fully offline · Cross-platform desktop password manager</b>
+  <b>零知识 · 纯本地 · 跨平台桌面密码管理器</b>
 </p>
 
 <p align="center">
-  Built with <b>Tauri v2 + React 19 + Rust</b>. All cryptographic operations run in the Rust backend — your data stays 100% local, no network, no cloud, ever.
+  基于 <b>Tauri v2 + React 19 + Rust</b> 构建。所有加密操作在 Rust 后端完成，数据 100% 本地存储，绝不联网，绝不上云。
 </p>
 
 <p align="center">
-  📖 <a href="README_ZH.md">中文文档</a>
+  📖 <a href="README_EN.md">English Documentation</a>
 </p>
 
 ---
 
-## 📥 Download
+## 📥 下载
 
-| Platform | File | Size |
+| 平台 | 文件 | 大小 |
 | --- | --- | --- |
 | Windows | `SecureVault_1.0.0_x64-setup.exe` | ~8 MB |
 | macOS | `SecureVault_1.0.0_universal.dmg` | ~10 MB |
 | Linux | `SecureVault_1.0.0_amd64.AppImage` | ~10 MB |
 
-> 🟢 **Portable**: Extract `secure-vault-desktop.exe` from the release archive and run directly — no installation required.
+> 🟢 **绿色免安装**：从 Release 压缩包中提取 `secure-vault-desktop.exe` 即可直接运行，无需安装。
 
 ---
 
-## 🔒 Security Architecture
+## 🔒 安全架构
 
-| Layer | Algorithm | Description |
+| 层级 | 算法 | 说明 |
 | --- | --- | --- |
-| Key Derivation | **Argon2id** (64MB) / **PBKDF2-SHA256** (100K iter) | Dual KDF, user-selectable, GPU/ASIC resistant |
-| Data Encryption | **AES-256-GCM** | Random 12-byte nonce, authenticated encryption, tamper-proof |
-| File I/O | Atomic write (temp + rename) | Prevents corruption on unexpected shutdown |
-| Integrity | **SHA-256** checksum | Verified on every backup import |
-| Storage | OS app data directory | `%APPDATA%` (Windows) / `Application Support` (macOS) |
+| 密钥派生 | **Argon2id** (64MB) / **PBKDF2-SHA256** (10万次) | 双算法可选，抗 GPU/ASIC 暴力破解 |
+| 数据加密 | **AES-256-GCM** | 随机 Nonce，认证加密，防篡改 |
+| 文件写入 | 原子写入（临时文件 + 重命名） | 防止意外断电导致数据损坏 |
+| 完整性校验 | **SHA-256** | 导入备份时自动验证 |
+| 存储位置 | 系统应用数据目录 | Windows `%APPDATA%` / macOS `Application Support` |
 
 ---
 
-## ✨ Features
+## ✨ 功能
 
-### 🔐 Vault Management
+### 🔐 保险箱管理
 
-- **4 credential types** — Login / Card / Secure Note / Identity
-- **Folder organization** — custom folders with rename/delete
-- **Star favorites** — quick access to important items
-- **Auto-lock** — configurable idle timeout, sensitive data wiped from memory on lock
+- **四种凭证类型** — 登录账号 / 虚拟卡券 / 安全备忘 / 密保资料
+- **文件夹分类** — 自定义创建/重命名/删除文件夹
+- **星标收藏** — 快速定位重要条目
+- **自动锁定** — 可配置空闲超时，锁定时从内存中擦除密钥和解密数据
 
-### 🧬 Encryption & Backup
+### 🧬 加密与备份
 
-- **Dual KDF** — Argon2id (default, recommended) or PBKDF2-SHA256
-- **Encrypted export** — AES-256-GCM backup with SHA-256 checksum
-- **Smart import** — merge or overwrite strategies, automatic integrity verification
+- **双 KDF** — Argon2id（默认推荐）或 PBKDF2-SHA256
+- **加密导出** — AES-256-GCM 加密 + SHA-256 校验和
+- **智能导入** — 合并或覆盖策略，自动完整性验证
 
-### 🔍 Security Audit
+### 🔍 安全审计
 
-- **Weak password detection** — Shannon entropy estimation
-- **Reuse collision** — cross-service password reuse detection
-- **Compromised check** — matches against known leaked password patterns
-- **One-click fix** — auto-generate strong replacement passwords
+- **弱密码检测** — 基于 Shannon 熵值估算
+- **复用碰撞** — 跨服务密码复用检测
+- **泄露匹配** — 与已知泄露密码特征对比
+- **一键修补** — 自动生成高强度替换密码
 
-### 🎲 Password Generator
+### 🎲 密码生成器
 
-- **Random mode** — configurable length, character sets, exclude ambiguous chars
-- **Passphrase mode** — BIP39 2048-word standard, customizable separator, capitalization
-- **Entropy meter** — real-time entropy estimation with crack time projection
-- **History cache** — last generated passwords with one-click copy
+- **随机模式** — 可配置长度、字符集、排除易混淆字符
+- **助记词模式** — BIP39 2048 词库标准，自定义分隔符、首字母大写
+- **熵值仪表** — 实时熵值估算与破译时间预测
+- **历史缓存** — 最近生成的密码，一键复制
 
 ---
 
-## ⌨️ Shortcuts
+## ⌨️ 快捷操作
 
-| Action | How |
+| 操作 | 方式 |
 | --- | --- |
-| Create credential | Click "新建凭证" in sidebar |
-| Toggle password visibility | Click the 👁 button on any password field |
-| Copy to clipboard | Hover any field — copy button appears |
-| Lock vault | Click "立即锁定保险箱" in sidebar footer |
+| 新建凭证 | 点击侧栏「新建凭证」按钮 |
+| 查看密码明文 | 点击密码输入框旁的 👁 按钮 |
+| 复制到剪贴板 | 悬停任意字段 — 复制按钮出现 |
+| 锁定保险箱 | 点击侧栏底部「立即锁定保险箱」 |
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ 技术栈
 
-| Technology | Usage |
+| 技术 | 用途 |
 | --- | --- |
-| `Tauri v2` | Desktop framework — lightweight, native performance |
-| `React 19` | UI rendering layer |
-| `TypeScript` | Type-safe frontend logic |
-| `Rust` | Cryptographic backend (PBKDF2, Argon2, AES-256-GCM) |
-| `Tailwind CSS v4` | Utility-first styling |
-| `motion` | Animations and transitions |
-| `lucide-react` | Icon library |
-| `Vite 6` | Frontend bundler |
+| `Tauri v2` | 桌面框架 — 轻量、原生性能 |
+| `React 19` | UI 渲染层 |
+| `TypeScript` | 类型安全的前端逻辑 |
+| `Rust` | 加密后端 (PBKDF2, Argon2, AES-256-GCM) |
+| `Tailwind CSS v4` | 原子化样式 |
+| `motion` | 动画与过渡效果 |
+| `lucide-react` | 图标库 |
+| `Vite 6` | 前端构建工具 |
 
 ---
 
-## 📁 Project Structure
+## 📁 项目结构
 
 ```text
 src/
-├── components/          # 8 UI components
-│   ├── LockScreen.tsx            # vault lock / master password creation
-│   ├── CredentialDetail.tsx      # credential detail view
-│   ├── PasswordGenerator.tsx     # password & passphrase generator
-│   ├── SecurityAudit.tsx         # security audit dashboard
-│   ├── SplashScreen.tsx          # startup splash animation
+├── components/          # 8 个 UI 组件
+│   ├── LockScreen.tsx            # 保险箱锁定 / 主密码创建
+│   ├── CredentialDetail.tsx      # 凭证详情视图
+│   ├── PasswordGenerator.tsx     # 密码与助记词生成器
+│   ├── SecurityAudit.tsx         # 安全审计仪表板
+│   ├── SplashScreen.tsx          # 启动 Splash 动画
 │   └── FolderModal / DeleteConfirmModal / ImportPasswordModal
-├── hooks/               # 3 custom React hooks
-│   ├── useVault.ts               # encryption, CRUD, auto-save
-│   ├── usePasswordGenerator.ts   # generation logic
-│   └── useSecurityAudit.ts       # audit calculation
-├── utils/               # 3 utility modules
-│   ├── tauriBridge.ts            # Tauri IPC wrapper
-│   ├── vaultStorage.ts           # encrypted storage operations
-│   └── wordlist.ts               # BIP39 2048 English word list
-├── App.tsx              # main application component
-├── main.tsx             # entry point
-└── index.css            # global styles & animations
+├── hooks/               # 3 个自定义 React Hook
+│   ├── useVault.ts               # 加密、CRUD、自动保存
+│   ├── usePasswordGenerator.ts   # 密码生成逻辑
+│   └── useSecurityAudit.ts       # 审计计算逻辑
+├── utils/               # 3 个工具模块
+│   ├── tauriBridge.ts            # Tauri IPC 封装
+│   ├── vaultStorage.ts           # 加密存储操作
+│   └── wordlist.ts               # BIP39 2048 英文词库
+├── App.tsx              # 主应用组件
+├── main.tsx             # 入口
+└── index.css            # 全局样式与动画
 src-tauri/
-├── src/main.rs          # Rust crypto backend (7 Tauri commands)
-├── Cargo.toml           # Rust dependencies
-├── capabilities/        # Tauri plugin permissions
-└── icons/               # application icons (PNG, ICO, ICNS)
+├── src/main.rs          # Rust 加密后端（7 个 Tauri 命令）
+├── Cargo.toml           # Rust 依赖
+├── capabilities/        # Tauri 插件权限
+└── icons/               # 应用图标（PNG, ICO, ICNS）
 ```
 
 ---
 
-## 🚀 Build from Source
+## 🚀 本地构建
 
-### Prerequisites
+### 环境要求
 
 - **Node.js** 18+
-- **Rust** (via [rustup](https://rustup.rs))
-- **Windows**: [Visual Studio C++ Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
+- **Rust**（通过 [rustup](https://rustup.rs) 安装）
+- **Windows**：需要 [Visual Studio C++ 生成工具](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
 
-### Development
+### 开发调试
 
 ```bash
-# Install dependencies
+# 安装依赖
 npm install
 
-# Launch Tauri desktop dev mode (hot reload)
+# 启动 Tauri 桌面调试模式（热更新）
 npm run tauri dev
 
-# TypeScript type check
+# TypeScript 类型检查
 npm run typecheck
 ```
 
-### Production Build
+### 生产打包
 
 ```bash
 npm run tauri build
 ```
 
-Output: `src-tauri/target/release/bundle/nsis/` (Windows NSIS installer).
+产物位置：`src-tauri/target/release/bundle/nsis/`（Windows NSIS 安装器）。
 
 ---
 
-## ☁️ CI/CD (GitHub Actions)
+## ☁️ 自动构建（GitHub Actions）
 
-Push a version tag to trigger automatic cross-platform builds:
+推送版本标签即可触发三端自动构建：
 
 ```bash
 git tag v1.0.0
 git push origin v1.0.0
 ```
 
-> ⚠️ **Before first use**: Repository Settings → Actions → General → Workflow permissions → **Read and write permissions**.
+> ⚠️ **首次使用前**：仓库 Settings → Actions → General → Workflow permissions → 勾选 **Read and write permissions**。
 
 ---
 
-## 📝 Version History
+## 📝 版本历史
 
-| Version | Date | Notes |
+| 版本 | 日期 | 说明 |
 | --- | --- | --- |
-| `v1.0.0` | 2024-07 | Initial release — full vault, dual KDF, audit, generator |
+| `v1.0.0` | 2024-07 | 首次发布 — 完整保险箱、双 KDF、审计、密码生成器 |
 
 ---
 
-## 🤝 Contributing
+## 🤝 参与贡献
 
-Issues and pull requests are welcome. For major changes, please open an issue first to discuss.
+欢迎提交 Issue 和 Pull Request。重大变更请先开 Issue 讨论。
 
-## 📄 License
+## 📄 开源许可
 
-[MIT License](LICENSE) © 2024 SecureVault — free to use, modify, and distribute.
+[MIT License](LICENSE) © 2024 SecureVault — 自由使用、修改、分发。
 
 ---
 
 <p align="center">
-  <sub>🔐 100% Client-Side Pure Local Cryptography Sandbox</sub>
+  <sub>🔐 100% 纯本地 客户端密码学沙箱</sub>
 </p>
