@@ -1,0 +1,20 @@
+{
+  "identifier": "default",
+  "description": "SecureVault 默认权限配置",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-show",
+    "clipboard-manager:default",
+    "clipboard-manager:allow-write-text",
+    "clipboard-manager:allow-read-text",
+    "dialog:default",
+    "dialog:allow-open",
+    "dialog:allow-save",
+    "shell:default",
+    "shell:allow-open"
+  ],
+  "remote": {
+    "urls": ["http://localhost:1420"]
+  }
+}

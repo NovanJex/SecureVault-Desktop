@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: #f8fafc;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-flow {
+  background-size: 200% auto;
+  animation: gradient-flow 6s linear infinite;
+}
+
+@keyframes gradient-flow-create {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradient-flow-unlock {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient-create {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #10b981, #6366f1);
+  background-size: 200% 100%;
+  animation: gradient-flow-create 3s linear infinite;
+}
+
+.animated-gradient-unlock {
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #38bdf8, #3b82f6);
+  background-size: 200% 100%;
+  animation: gradient-flow-unlock 3s linear infinite;
+}
+
+@keyframes float-slow-1 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes float-slow-2 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-40px, 40px) scale(1.15); }
+}
+
+.animate-float-1 {
+  animation: float-slow-1 15s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-slow-2 18s ease-in-out infinite;
+}
+
+@keyframes tech-scan {
+  0% { transform: translateY(-120%) rotate(12deg); }
+  100% { transform: translateY(180%) rotate(12deg); }
+}
+
+@keyframes node-blink {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 0.85; transform: scale(1.2); }
+}
+
+.animate-tech-scan {
+  animation: tech-scan 15s linear infinite;
+}
+
+.animate-node-blink {
+  animation: node-blink var(--blink-duration, 4s) ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 禁用 Edge 浏览器原生密码查看图标 */
+input[type="password"]::-ms-reveal {
+  display: none;
+}

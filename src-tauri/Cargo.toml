@@ -1,0 +1,24 @@
+[package]
+name = "secure-vault-desktop"
+version = "0.1.0"
+description = "A highly secure, offline-first personal credentials manager built with Rust & Tauri"
+authors = ["SecureVault Team"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.0", features = [] }
+
+[dependencies]
+tauri = { version = "2.0", features = [] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+aes-gcm = "0.10.3"
+pbkdf2 = "0.12.2"
+sha2 = "0.10.8"
+argon2 = "0.5"
+rand = "0.8.5"
+base64 = "0.22.1"
+tokio = { version = "1.37.0", features = ["full"] }
+tauri-plugin-clipboard-manager = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-shell = "2"

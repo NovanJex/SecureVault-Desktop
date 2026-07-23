@@ -1,0 +1,44 @@
+{
+  "productName": "SecureVault",
+  "version": "1.0.0",
+  "identifier": "com.securevault.desktop",
+  "build": {
+    "beforeDevCommand": "npm run tauri:dev",
+    "beforeBuildCommand": "npm run tauri:build",
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "SecureVault",
+        "width": 1100,
+        "height": 760,
+        "resizable": true,
+        "fullscreen": false,
+        "visible": false,
+        "backgroundColor": "#f8fafc"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "languages": ["SimpChinese", "English"],
+        "installMode": "perMachine"
+      }
+    }
+  }
+}
